@@ -1,0 +1,20 @@
+html {
+    background-color: f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.cabecalho .titulo {
+    text-align: center;
+    margin: 1rem 0rem;
+}
+
+.primaria {
+  margin: 0rem 1.5rem;
+  padding: 1rem;
+/*   text-align: center;
+ */}
+
+.primaria ol li {
+  padding: 0.3rem;
+}
