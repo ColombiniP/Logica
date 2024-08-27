@@ -1,66 +1,27 @@
-<style>
-  html {
-    /* font-size: 40pt; */
-    /* font-weight: bold; */
-    /* text-align: center; */
-    /* margin: 30px; */
-    /* max-width: 360px; */
-  }
-  
-  .conteudo-primo {
-    text-align: center;
-    margin: 4px 0px;
-  }
-  
-  form {
-    display: flex;
-    flex-flow: wrap column;
-    width: 100%;
-    gap: 8px;
-  }
-  
-  form input[type="submit"] {
-    padding: 5px;
-    text-transform: uppercase;
-  }
-  
-  input[placeholder] {text-transform: uppercase;
-    text-align: center;
-    padding: 2px;
-  }
-</style>
-
-<section class="conteudo-primo">
-  <?php
-
-$numero = trim(intval($_GET['numero']));
-
-function primo($numero)
-{
-  if ($numero < 1) {
-    return "Não é primo";
-  } 
-  
-  if ($numero % 2 == 0 && $numero != 2) {
-    return "Não é primo";
-  }
-  
-  if ($numero % 3 == 0 and $numero != 3) {
-    return "Não é primo";
-  } else {
-    echo "primo";
-  }
-  
-}
-?>
-
-<form action="index.php" method="get" accept-charset="utf-8">
-  <input type="number" name="numero" id="numero" value="" placeholder="número Primo?"/>
-  <input type="submit" name="" id="" value="enviar" />
-</form>
-
 <?php
+/**
+ * Faça um programa que solicite um valor ao usuário e verifique se esse valor é um número primo. Utilize uma estrutura de repetição na solução deste exercício.
+ */
+ 
+$number = (int) trim(readline("Número: "));
 
-echo primo($numero);
-?>
-</section>
+if ($number < 1 ) {
+  print("Número menor que 1!\n");
+  echo "\n\n-_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_";
+  die();
+} 
+
+if ($number == 2 || $number == 3) {
+  print "Número primo!\n";
+} elseif ($number > 3) {
+  $limite = round(sqrt($number));
+  for ($i = 2; $i <= $limite; $i++) {
+    if ($number % $i == 0) {
+      print("Número não é primo!\n");
+      echo "\n\n-_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_";
+      exit;
+    }
+  }
+  print("Número é primo!\n");
+  echo "\n\n-_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_--_-_";
+}
